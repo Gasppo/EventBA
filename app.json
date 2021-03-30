@@ -1,0 +1,12 @@
+{
+  "name": "EventBA-APP",
+  "displayName": "EventBA-APP",
+  "expo": {
+    "name": "EventBA-APP",
+    "slug": "EventBA-APP",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
