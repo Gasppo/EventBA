@@ -1,7 +1,7 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 import React, { useContext } from "react";
-import { TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import { AuthContext } from "./AuthProvider";
 import { Feed } from "./Screens/Feed";
 interface HomeStackProps {}
@@ -14,6 +14,10 @@ export const HomeStack: React.FC<HomeStackProps> = ({}) => {
       <Stack.Screen
         name="Feed"
         options={{
+          headerTitle: () => null,
+          headerStyle: {
+            backgroundColor: "#4E4290",
+          },
           headerRight: () => {
             const { logout } = useContext(AuthContext);
             return (
@@ -22,8 +26,26 @@ export const HomeStack: React.FC<HomeStackProps> = ({}) => {
                   logout();
                 }}
               >
-                <MaterialCommunityIcons name={"logout"} size={30} />
+                <MaterialCommunityIcons
+                  name={"logout"}
+                  size={30}
+                  color={"white"}
+                />
               </TouchableOpacity>
+            );
+          },
+          headerLeft: () => {
+            return (
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  marginLeft: 10,
+                  fontSize: 18,
+                  color: "white",
+                }}
+              >
+                EventBA
+              </Text>
             );
           },
         }}
