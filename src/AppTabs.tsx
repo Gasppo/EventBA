@@ -1,42 +1,18 @@
-import React, { useContext } from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { AppParamList } from "./AppParamList";
-import { Centrar } from "./Centrar";
-import { Button, Text } from "react-native";
-import { AuthContext } from "./AuthProvider";
 import {
   AntDesign,
-  MaterialCommunityIcons,
   FontAwesome5,
+  MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import React from "react";
+import { AppParamList } from "./AppParamList";
 import { HomeStack } from "./HomeStack";
+import { Entradas } from "./Screens/Entradas";
+import { Perfil } from "./Screens/Perfil";
+import { Search } from "./Screens/Search";
 interface AppTabsProps {}
 
 const Tabs = createBottomTabNavigator<AppParamList>();
-
-function Search() {
-  return (
-    <Centrar>
-      <Text> Search</Text>
-    </Centrar>
-  );
-}
-
-function Entradas() {
-  return (
-    <Centrar>
-      <Text> Entradas</Text>
-    </Centrar>
-  );
-}
-
-function Perfil() {
-  return (
-    <Centrar>
-      <Text> Perfil</Text>
-    </Centrar>
-  );
-}
 
 export const AppTabs: React.FC<AppTabsProps> = ({}) => {
   return (

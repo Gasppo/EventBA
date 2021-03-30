@@ -1,6 +1,4 @@
-import { fake } from "faker";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { AsyncStorage } from "react-native";
 
 type User = null | { username: string };

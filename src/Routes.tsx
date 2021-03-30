@@ -4,7 +4,7 @@ import { ActivityIndicator, AsyncStorage } from "react-native";
 import { AppTabs } from "./AppTabs";
 import { AuthContext } from "./AuthProvider";
 import { AuthStack } from "./AuthStack";
-import { Centrar } from "./Centrar";
+import { Centrar } from "./Components/Centrar";
 
 interface RoutesProps {}
 
