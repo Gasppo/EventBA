@@ -1,6 +1,6 @@
 import React from "react";
-import { Centrar } from "../Components/Centrar";
 import { Text } from "react-native";
+import { Centrar } from "../Components/Centrar";
 
 export function Entradas() {
   return (

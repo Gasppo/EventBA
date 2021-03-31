@@ -1,15 +1,9 @@
-import React from "react";
-import {
-  Button,
-  Image,
-  Text,
-  TouchableOpacity,
-  View,
-  StyleSheet,
-} from "react-native";
-import { FlatList } from "react-native-gesture-handler";
-import { Centrar } from "../Components/Centrar";
 import faker from "faker";
+import React from "react";
+import { Text, View } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
+import { FeedItem } from "../Components/FeedItem";
+import { TouchableImage } from "../Components/TouchableImage";
 
 export function Feed() {
   return (
@@ -23,42 +17,10 @@ export function Feed() {
             justifyContent: "center",
           }}
         >
-          <TouchableOpacity style={{ marginHorizontal: 5 }}>
-            <View style={styles.logoContainer}>
-              <Image
-                source={require("../img/museum.png")}
-                style={styles.tinyLogo}
-              />
-            </View>
-            <Text>Museos</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ marginHorizontal: 5 }}>
-            <View style={styles.logoContainer}>
-              <Image
-                source={require("../img/Theater.png")}
-                style={styles.tinyLogo}
-              />
-            </View>
-            <Text>Teatro</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ marginHorizontal: 5 }}>
-            <View style={styles.logoContainer}>
-              <Image
-                source={require("../img/clapperboard.png")}
-                style={styles.tinyLogo}
-              />
-            </View>
-            <Text>Cine</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ marginHorizontal: 5 }}>
-            <View style={styles.logoContainer}>
-              <Image
-                source={require("../img/music-note.png")}
-                style={styles.tinyLogo}
-              />
-            </View>
-            <Text>Música</Text>
-          </TouchableOpacity>
+          <TouchableImage text="Museo" src="Museo" />
+          <TouchableImage text="Teatro" src="Teatro" />
+          <TouchableImage text="Cine" src="Cine" />
+          <TouchableImage text="Música" src="Musica" />
         </View>
         <View
           style={{
@@ -68,42 +30,10 @@ export function Feed() {
             justifyContent: "center",
           }}
         >
-          <TouchableOpacity style={{ marginHorizontal: 5 }}>
-            <View style={styles.logoContainer}>
-              <Image
-                source={require("../img/camera.png")}
-                style={styles.tinyLogo}
-              />
-            </View>
-            <Text>Foto</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ marginHorizontal: 5 }}>
-            <View style={styles.logoContainer}>
-              <Image
-                source={require("../img/pillar.png")}
-                style={styles.tinyLogo}
-              />
-            </View>
-            <Text>Cultura</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ marginHorizontal: 5 }}>
-            <View style={styles.logoContainer}>
-              <Image
-                source={require("../img/bicycle.png")}
-                style={styles.tinyLogo}
-              />
-            </View>
-            <Text>Exterior</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ marginHorizontal: 5 }}>
-            <View style={styles.logoContainer}>
-              <Image
-                source={require("../img/dancer.png")}
-                style={styles.tinyLogo}
-              />
-            </View>
-            <Text>Danza</Text>
-          </TouchableOpacity>
+          <TouchableImage text="Foto" src="Foto" />
+          <TouchableImage text="Cultura" src="Cultura" />
+          <TouchableImage text="Exterior" src="Exterior" />
+          <TouchableImage text="Danza" src="Danza" />
         </View>
       </View>
       <View style={{ flex: 1 }}>
@@ -123,22 +53,7 @@ export function Feed() {
 
         <FlatList
           renderItem={({ item }) => {
-            return (
-              <TouchableOpacity
-                onPress={() => {}}
-                style={{
-                  flex: 1,
-                  alignItems: "flex-start",
-                  justifyContent: "center",
-
-                  borderWidth: 0.25,
-                }}
-              >
-                <Text style={{ marginVertical: 20, marginLeft: 10 }}>
-                  {item}
-                </Text>
-              </TouchableOpacity>
-            );
+            return <FeedItem item={item} />;
           }}
           keyExtractor={(product, idx) => product + idx}
           data={Array.from(Array(50), () => faker.commerce.product())}
@@ -147,15 +62,3 @@ export function Feed() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  tinyLogo: {
-    width: 65,
-    height: 65,
-  },
-  logoContainer: {
-    borderWidth: 0.5,
-    borderRadius: 5,
-    padding: 10,
-  },
-});
