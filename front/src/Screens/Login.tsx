@@ -5,12 +5,12 @@ import { AuthContext } from "../AuthProvider";
 import { Centrar } from "../Components/Centrar";
 
 export function Login({ navigation, route }: AuthNavProps<"Login">) {
-  const { login } = useContext(AuthContext);
+  const { loginTemp } = useContext(AuthContext);
   return (
     <Centrar>
       <Text
         style={{
-          color: "#4E4290",
+          color: "#4D418D",
           fontWeight: "bold",
           fontSize: 40,
           marginBottom: 50,
@@ -21,7 +21,7 @@ export function Login({ navigation, route }: AuthNavProps<"Login">) {
       </Text>
       <Text
         style={{
-          color: "#4E4290",
+          color: "#4D418D",
           fontSize: 20,
           marginBottom: 180,
         }}
@@ -31,11 +31,11 @@ export function Login({ navigation, route }: AuthNavProps<"Login">) {
       </Text>
       <TouchableOpacity
         onPress={() => {
-          login();
+          navigation.navigate("LoginForm");
         }}
         style={{
           borderRadius: 20,
-          backgroundColor: "#4E4290",
+          backgroundColor: "#4D418D",
           marginBottom: 60,
         }}
       >
@@ -50,18 +50,18 @@ export function Login({ navigation, route }: AuthNavProps<"Login">) {
           Iniciar sesión
         </Text>
       </TouchableOpacity>
-      <Text style={{ color: "#4E4290", marginBottom: 10 }}>
+      <Text style={{ color: "#4D418D", marginBottom: 10 }}>
         {" "}
         ¿No tenes una cuenta?
       </Text>
       <TouchableOpacity
         onPress={() => {
-          login();
+          navigation.navigate("Register");
         }}
         style={{
           borderRadius: 20,
           borderWidth: 2,
-          borderColor: "#4E4290",
+          borderColor: "#4D418D",
           marginBottom: 40,
         }}
       >
@@ -70,7 +70,7 @@ export function Login({ navigation, route }: AuthNavProps<"Login">) {
             fontSize: 20,
             marginVertical: 10,
             marginHorizontal: 100,
-            color: "#4E4290",
+            color: "#4D418D",
           }}
         >
           Registrate
@@ -78,10 +78,10 @@ export function Login({ navigation, route }: AuthNavProps<"Login">) {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          login();
+          loginTemp();
         }}
       >
-        <Text style={{ color: "#4E4290", fontWeight: "600" }}>
+        <Text style={{ color: "#4D418D", fontWeight: "600" }}>
           Saltear este paso
         </Text>
       </TouchableOpacity>

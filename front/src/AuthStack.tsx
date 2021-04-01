@@ -3,6 +3,7 @@ import React from "react";
 import { Text, View } from "react-native";
 import { AuthParamList } from "./AuthParamList";
 import { Login } from "./Screens/Login";
+import { LoginForm } from "./Screens/LoginForm";
 import { Register } from "./Screens/Register";
 
 interface AuthStackProps {}
@@ -16,27 +17,54 @@ export const AuthStack: React.FC<AuthStackProps> = ({}) => {
         name="Login"
         options={{
           headerStyle: {
-            backgroundColor: "#4E4290",
+            backgroundColor: "#4D418D",
           },
           headerTitle: () => null,
-          headerLeft: () => {
-            return (
-              <View style={{ marginLeft: 10 }}>
-                <Text
-                  style={{ fontWeight: "800", color: "white", fontSize: 18 }}
-                >
-                  Log In
-                </Text>
-              </View>
-            );
-          },
         }}
         component={Login}
       />
       <Stack.Screen
         name="Register"
-        options={{ headerTitle: "Registrarse" }}
+        options={{
+          headerStyle: {
+            backgroundColor: "#4D418D",
+          },
+          headerTitle: () => null,
+          headerLeft: () => {
+            return (
+              <View style={{ marginLeft: 20 }}>
+                <Text
+                  style={{ fontWeight: "600", color: "white", fontSize: 18 }}
+                >
+                  Crear Cuenta
+                </Text>
+              </View>
+            );
+          },
+        }}
         component={Register}
+      />
+
+      <Stack.Screen
+        name="LoginForm"
+        options={{
+          headerStyle: {
+            backgroundColor: "#4D418D",
+          },
+          headerTitle: () => null,
+          headerLeft: () => {
+            return (
+              <View style={{ marginLeft: 20 }}>
+                <Text
+                  style={{ fontWeight: "600", color: "white", fontSize: 18 }}
+                >
+                  Log in
+                </Text>
+              </View>
+            );
+          },
+        }}
+        component={LoginForm}
       />
     </Stack.Navigator>
   );

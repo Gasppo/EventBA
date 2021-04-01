@@ -4,8 +4,9 @@ import { Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { FeedItem } from "../Components/FeedItem";
 import { TouchableImage } from "../Components/TouchableImage";
+import { HomeStackNavProps } from "../HomeParamList";
 
-export function Feed() {
+export function Feed({ navigation }: HomeStackNavProps<"Feed">) {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
@@ -42,7 +43,7 @@ export function Feed() {
             style={{
               marginBottom: 5,
               marginLeft: 5,
-              color: "#4E4290",
+              color: "#4D418D",
               fontWeight: "600",
               fontSize: 20,
             }}

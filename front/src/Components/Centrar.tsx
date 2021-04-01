@@ -10,6 +10,7 @@ export const Centrar: React.FC<CentrarProps> = ({ children }) => {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
+        backgroundColor: "white",
       }}
     >
       {children}

@@ -11,33 +11,33 @@ import { AuthNavProps } from "../AuthParamList";
 import { Centrar } from "../Components/Centrar";
 import { AuthContext } from "../AuthProvider";
 
-export function Register({ navigation, route }: AuthNavProps<"Register">) {
-  const { register } = useContext(AuthContext);
+interface LoginFormProps {}
+
+export function LoginForm({ navigation, route }: AuthNavProps<"LoginForm">) {
+  const { login } = useContext(AuthContext);
   const [email, onChangeEmail] = useState("");
-  const [user, onChangeUser] = useState("");
   const [password, onChangePassword] = useState("");
+
   return (
     <Centrar>
       <Text
         style={{
           textAlign: "left",
-          width: 300,
           color: "#4D418D",
           fontSize: 34,
-          fontWeight: "bold",
+          fontWeight: "900",
         }}
       >
-        ¡Hola!
+        EventBA
       </Text>
       <Text
         style={{
           textAlign: "left",
-          width: 300,
           color: "#4D418D",
           fontSize: 24,
         }}
       >
-        Creá tu usuario
+        ¡Bienvenido!
       </Text>
       <View style={{ marginVertical: 20 }}></View>
       <TextInput
@@ -46,12 +46,7 @@ export function Register({ navigation, route }: AuthNavProps<"Register">) {
         value={email}
         placeholder="Dirección de Email"
       />
-      <TextInput
-        style={styles.inputRegister}
-        onChangeText={onChangeUser}
-        value={user}
-        placeholder="Nombre de usuario"
-      />
+
       <TextInput
         style={styles.inputRegister}
         onChangeText={onChangePassword}
@@ -59,21 +54,21 @@ export function Register({ navigation, route }: AuthNavProps<"Register">) {
         placeholder="Contraseña"
         secureTextEntry={true}
       />
-      <Text
-        style={{
-          color: "grey",
-          textAlign: "center",
-          width: 300,
-          marginVertical: 30,
-        }}
-      >
-        {" "}
-        By creating an account you agree to our Terms of Service and Privacy
-        Policy{" "}
-      </Text>
+      <TouchableOpacity>
+        <Text
+          style={{
+            color: "grey",
+            textAlign: "center",
+            width: 300,
+            marginVertical: 30,
+          }}
+        >
+          Olvidó su contraseña? Click aqui!
+        </Text>
+      </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          register();
+          login();
         }}
         style={{
           borderRadius: 20,
@@ -89,7 +84,7 @@ export function Register({ navigation, route }: AuthNavProps<"Register">) {
             color: "white",
           }}
         >
-          Crear Cuenta
+          Iniciar Session
         </Text>
       </TouchableOpacity>
       <TouchableOpacity

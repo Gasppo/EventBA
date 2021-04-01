@@ -16,7 +16,7 @@ export const HomeStack: React.FC<HomeStackProps> = ({}) => {
         options={{
           headerTitle: () => null,
           headerStyle: {
-            backgroundColor: "#4E4290",
+            backgroundColor: "#4D418D",
           },
           headerRight: () => {
             const { logout } = useContext(AuthContext);
