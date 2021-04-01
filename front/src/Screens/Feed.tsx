@@ -8,7 +8,7 @@ import { HomeStackNavProps } from "../HomeParamList";
 
 export function Feed({ navigation }: HomeStackNavProps<"Feed">) {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "white" }}>
       <View style={{ flex: 1 }}>
         <View
           style={{
@@ -57,7 +57,7 @@ export function Feed({ navigation }: HomeStackNavProps<"Feed">) {
             return <FeedItem item={item} />;
           }}
           keyExtractor={(product, idx) => product + idx}
-          data={Array.from(Array(50), () => faker.commerce.product())}
+          data={Array.from(Array(10), () => faker.commerce.product())}
         />
       </View>
     </View>
