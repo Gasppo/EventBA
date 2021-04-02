@@ -7,11 +7,13 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 import { Centrar } from "./Centrar";
+import { useState } from "react";
 interface FeedItemProps {
   item: any;
 }
 
 export const FeedItem: React.FC<FeedItemProps> = ({ item }) => {
+  const [oprimido, onPressOprimido] = useState(false);
   return (
     <TouchableOpacity
       onPress={() => {}}
@@ -63,8 +65,18 @@ export const FeedItem: React.FC<FeedItemProps> = ({ item }) => {
             justifyContent: "flex-end",
           }}
         >
-          <TouchableOpacity style={{ marginRight: 20, marginBottom: 10 }}>
-            <AntDesign name={"hearto"} size={20} color={"#4D418D"} />
+          <TouchableOpacity
+            onPress={() => {
+              onPressOprimido(!oprimido);
+            }}
+            style={{ marginRight: 20, marginBottom: 10 }}
+          >
+            {!oprimido && (
+              <AntDesign name={"hearto"} size={20} color={"#4D418D"} />
+            )}
+            {oprimido && (
+              <AntDesign name={"heart"} size={20} color={"#4D418D"} />
+            )}
           </TouchableOpacity>
         </View>
       </View>
