@@ -51,7 +51,6 @@ export function Login({ navigation, route }: AuthNavProps<"Login">) {
         </Text>
       </TouchableOpacity>
       <Text style={{ color: "#4D418D", marginBottom: 10 }}>
-        {" "}
         ¿No tenes una cuenta?
       </Text>
       <TouchableOpacity

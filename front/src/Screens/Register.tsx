@@ -73,7 +73,7 @@ export function Register({ navigation, route }: AuthNavProps<"Register">) {
       </Text>
       <TouchableOpacity
         onPress={() => {
-          register();
+          register(user, email, password);
         }}
         style={{
           borderRadius: 20,
@@ -94,6 +94,7 @@ export function Register({ navigation, route }: AuthNavProps<"Register">) {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
+          register(user, email, password);
           navigation.navigate("Login");
         }}
       >

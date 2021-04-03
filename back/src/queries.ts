@@ -18,7 +18,7 @@ export const getUsers = (request: any, response: any) => {
 };
 
 export const getUserById = (request: any, response: any) => {
-  const id = parseInt(request.params.id);
+  const id = request.params.id;
 
   pool.query("SELECT * FROM users WHERE id = $1", [id], (error, results) => {
     if (error) {
@@ -26,6 +26,21 @@ export const getUserById = (request: any, response: any) => {
     }
     response.status(200).json(results.rows);
   });
+};
+
+export const getUserByEmail = (request: any, response: any) => {
+  const email = request.params.email;
+
+  pool.query(
+    "SELECT * FROM users WHERE email ilike $1",
+    [email],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).json(results.rows);
+    }
+  );
 };
 
 export const registerUser = (request: any, response: any) => {

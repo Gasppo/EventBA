@@ -14,11 +14,10 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
 
   useEffect(() => {
     //cheacker loggeo
-    AsyncStorage.getItem("user")
+    AsyncStorage.getItem("username")
       .then((userString) => {
         if (userString) {
           //hacer cosas
-          login();
         }
         setLoading(false);
       })

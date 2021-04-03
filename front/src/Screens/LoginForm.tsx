@@ -68,7 +68,7 @@ export function LoginForm({ navigation, route }: AuthNavProps<"LoginForm">) {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          login();
+          login(email, password);
         }}
         style={{
           borderRadius: 20,
