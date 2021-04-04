@@ -8,15 +8,23 @@ import {
 } from "@expo/vector-icons";
 import { Centrar } from "./Centrar";
 import { useState } from "react";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { HomeParamList } from "../HomeParamList";
+
 interface FeedItemProps {
   item: any;
+  navigation: StackNavigationProp<HomeParamList, "Feed">;
 }
 
-export const FeedItem: React.FC<FeedItemProps> = ({ item }) => {
+export const FeedItem: React.FC<FeedItemProps> = ({ item, navigation }) => {
   const [oprimido, onPressOprimido] = useState(false);
   return (
     <TouchableOpacity
-      onPress={() => {}}
+      onPress={() => {
+        navigation.navigate("Evento", {
+          eventID: item,
+        });
+      }}
       style={{
         flex: 1,
         alignItems: "flex-start",

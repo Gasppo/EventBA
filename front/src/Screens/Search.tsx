@@ -2,11 +2,12 @@ import faker from "faker";
 import React from "react";
 import { Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
+import { AppTabProps } from "../AppParamList";
 import { FeedItem } from "../Components/FeedItem";
 import { TouchableImage } from "../Components/TouchableImage";
 import { HomeStackNavProps } from "../HomeParamList";
 
-export function Search({ navigation }: HomeStackNavProps<"Search">) {
+export function Search({ navigation }: AppTabProps<"Buscar">) {
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <View style={{ flex: 1 }}>

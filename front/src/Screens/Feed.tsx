@@ -54,7 +54,7 @@ export function Feed({ navigation }: HomeStackNavProps<"Feed">) {
 
         <FlatList
           renderItem={({ item }) => {
-            return <FeedItem item={item} />;
+            return <FeedItem item={item} navigation={navigation} />;
           }}
           keyExtractor={(product, idx) => product + idx}
           data={Array.from(Array(10), () => faker.commerce.product())}

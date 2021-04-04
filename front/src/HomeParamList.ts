@@ -4,7 +4,9 @@ import { AuthParamList } from "./AuthParamList";
 
 export type HomeParamList = {
   Feed: undefined;
-  Search: undefined;
+  Evento: {
+    eventID: string;
+  };
 };
 
 export type HomeStackNavProps<T extends keyof HomeParamList> = {

@@ -1,8 +1,12 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  HeaderBackButton,
+} from "@react-navigation/stack";
 import React, { useContext } from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { AuthContext } from "./AuthProvider";
+import { Evento } from "./Screens/Evento";
 import { Feed } from "./Screens/Feed";
 interface HomeStackProps {}
 
@@ -50,6 +54,45 @@ export const HomeStack: React.FC<HomeStackProps> = ({}) => {
           },
         }}
         component={Feed}
+      />
+      <Stack.Screen
+        options={({ navigation, route }) => ({
+          headerStyle: {
+            backgroundColor: "#4D418D",
+          },
+          headerTitle: () => null,
+          headerLeft: () => {
+            return (
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  marginLeft: 4,
+                }}
+              >
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                  <MaterialCommunityIcons
+                    name={"arrow-left"}
+                    size={30}
+                    color={"white"}
+                  />
+                </TouchableOpacity>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    marginLeft: 10,
+                    fontSize: 18,
+                    color: "white",
+                  }}
+                >
+                  {route.params.eventID}
+                </Text>
+              </View>
+            );
+          },
+        })}
+        name="Evento"
+        component={Evento}
       />
     </Stack.Navigator>
   );
