@@ -36,6 +36,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           };
           if (password === userData.password) {
             setUser(currUser);
+            console.log(`Usuario conectado: ${currUser.username}`);
             AsyncStorage.setItem("username", JSON.stringify(currUser));
           } else {
             alert("Clave Incorrecta");

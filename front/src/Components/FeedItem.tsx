@@ -50,7 +50,7 @@ export const FeedItem: React.FC<FeedItemProps> = ({ item, navigation }) => {
               color: "#484848",
             }}
           >
-            Evento
+            Evento: {item}
           </Text>
           <Text
             style={{
@@ -76,6 +76,7 @@ export const FeedItem: React.FC<FeedItemProps> = ({ item, navigation }) => {
           <TouchableOpacity
             onPress={() => {
               onPressOprimido(!oprimido);
+              console.log(`Favorited ${item}: ${!oprimido}`);
             }}
             style={{ marginRight: 20, marginBottom: 10 }}
           >

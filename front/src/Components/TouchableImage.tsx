@@ -5,6 +5,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 interface TouchableImageProps {
   src: string;
   text: string;
+  onPressImg?: () => void;
 }
 
 const images = {
@@ -21,9 +22,10 @@ const images = {
 export const TouchableImage: React.FC<TouchableImageProps> = ({
   text,
   src,
+  onPressImg,
 }) => {
   return (
-    <TouchableOpacity style={{ marginHorizontal: 5 }}>
+    <TouchableOpacity style={{ marginHorizontal: 5 }} onPress={onPressImg}>
       <View style={styles.logoContainer}>
         <Image source={images[src]} style={styles.tinyLogo} />
       </View>
