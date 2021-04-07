@@ -10,6 +10,7 @@ import { HomeStack } from "./HomeStack";
 import { Entradas } from "./Screens/Entradas";
 import { Perfil } from "./Screens/Perfil";
 import { Search } from "./Screens/Search";
+import { SearchStack } from "./SearchStack";
 interface AppTabsProps {}
 
 const Tabs = createBottomTabNavigator<AppParamList>();
@@ -49,7 +50,7 @@ export const AppTabs: React.FC<AppTabsProps> = ({}) => {
       }}
     >
       <Tabs.Screen name="Inicio" component={HomeStack}></Tabs.Screen>
-      <Tabs.Screen name="Buscar" component={Search}></Tabs.Screen>
+      <Tabs.Screen name="Buscar" component={SearchStack}></Tabs.Screen>
       <Tabs.Screen name="Entradas" component={Entradas}></Tabs.Screen>
       <Tabs.Screen name="Perfil" component={Perfil}></Tabs.Screen>
     </Tabs.Navigator>

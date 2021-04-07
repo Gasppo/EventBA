@@ -12,10 +12,14 @@ import { useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { HomeParamList } from "../HomeParamList";
 import { Evento } from "../types";
+import { AppParamList, AppTabProps } from "../AppParamList";
+import { SearchParamList } from "../SearchParamList";
 
 interface FeedItemProps {
   item: Evento;
-  navigation: StackNavigationProp<HomeParamList, "Feed">;
+  navigation:
+    | StackNavigationProp<HomeParamList, "Feed">
+    | StackNavigationProp<SearchParamList, "Search">;
 }
 
 export const FeedItem: React.FC<FeedItemProps> = ({ item, navigation }) => {

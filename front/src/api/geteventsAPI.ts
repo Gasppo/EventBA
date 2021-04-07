@@ -1,4 +1,4 @@
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 export default function getEventsAPI() {
   return fetch(`http://localhost:5000/api/events`)
     .then((res) => res.json())

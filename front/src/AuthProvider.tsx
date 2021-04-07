@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import registerAPI from "./api/registerAPI";
 import loginAPI from "./api/loginAPI";

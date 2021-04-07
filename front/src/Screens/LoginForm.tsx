@@ -1,15 +1,14 @@
 import React, { useContext, useState } from "react";
 import {
-  Button,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  StyleSheet,
   View,
 } from "react-native";
 import { AuthNavProps } from "../AuthParamList";
-import { Centrar } from "../Components/Centrar";
 import { AuthContext } from "../AuthProvider";
+import { Centrar } from "../Components/Centrar";
 
 interface LoginFormProps {}
 
