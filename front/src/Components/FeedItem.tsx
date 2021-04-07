@@ -6,13 +6,15 @@ import {
   FontAwesome5,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import Moment from "moment";
 import { Centrar } from "./Centrar";
 import { useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { HomeParamList } from "../HomeParamList";
+import { Evento } from "../types";
 
 interface FeedItemProps {
-  item: any;
+  item: Evento;
   navigation: StackNavigationProp<HomeParamList, "Feed">;
 }
 
@@ -22,7 +24,7 @@ export const FeedItem: React.FC<FeedItemProps> = ({ item, navigation }) => {
     <TouchableOpacity
       onPress={() => {
         navigation.navigate("Evento", {
-          eventID: item,
+          item: item,
         });
       }}
       style={{
@@ -39,7 +41,9 @@ export const FeedItem: React.FC<FeedItemProps> = ({ item, navigation }) => {
           style={{ width: 100, height: 100, marginLeft: 5, borderRadius: 5 }}
         />
         <View style={{ flexDirection: "column" }}>
-          <Text style={{ marginLeft: 10, color: "#696969" }}>Fecha</Text>
+          <Text style={{ marginLeft: 10, color: "#696969" }}>
+            {Moment(item.fecha).format("DD/MM/YY HH:MM")}
+          </Text>
           <Text
             style={{
               marginTop: 10,
@@ -50,7 +54,7 @@ export const FeedItem: React.FC<FeedItemProps> = ({ item, navigation }) => {
               color: "#484848",
             }}
           >
-            Evento: {item}
+            {item.nombre}
           </Text>
           <Text
             style={{
@@ -60,10 +64,10 @@ export const FeedItem: React.FC<FeedItemProps> = ({ item, navigation }) => {
               color: "#696969",
             }}
           >
-            Organización
+            {item.organizacion}
           </Text>
           <Text style={{ marginLeft: 10, fontSize: 11, color: "#696969" }}>
-            Ubicación
+            {item.ubicacion}
           </Text>
         </View>
         <View
@@ -76,7 +80,7 @@ export const FeedItem: React.FC<FeedItemProps> = ({ item, navigation }) => {
           <TouchableOpacity
             onPress={() => {
               onPressOprimido(!oprimido);
-              console.log(`Favorited ${item}: ${!oprimido}`);
+              console.log(`Favorited ${item.nombre}: ${!oprimido}`);
             }}
             style={{ marginRight: 20, marginBottom: 10 }}
           >

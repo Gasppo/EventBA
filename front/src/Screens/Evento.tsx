@@ -6,7 +6,7 @@ import { HomeStackNavProps } from "../HomeParamList";
 export function Evento({ navigation, route }: HomeStackNavProps<"Evento">) {
   return (
     <Centrar>
-      <Text>{route.params.eventID}</Text>
+      <Text>{route.params.item.nombre}</Text>
     </Centrar>
   );
 }

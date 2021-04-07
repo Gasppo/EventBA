@@ -14,6 +14,7 @@ app.get("/", (_, res) => {
     res.status(200).send("Conexión");
 });
 app.get("/api/users", queries_1.getUsers);
+app.get("/api/events", queries_1.getEvents);
 app.get("/api/users/email/:email", queries_1.getUserByEmail);
 app.get("/api/users/id/:id", queries_1.getUserById);
 app.post("/api/users", queries_1.registerUser);

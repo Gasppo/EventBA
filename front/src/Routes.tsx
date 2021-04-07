@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React, { useContext, useEffect, useState } from "react";
-import { ActivityIndicator, AsyncStorage } from "react-native";
+import { ActivityIndicator } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 import { AppTabs } from "./AppTabs";
 import { AuthContext } from "./AuthProvider";
 import { AuthStack } from "./AuthStack";

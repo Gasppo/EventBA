@@ -1,5 +1,11 @@
 import express from "express";
-import { getUserByEmail, getUserById, getUsers, registerUser } from "./queries";
+import {
+  getEvents,
+  getUserByEmail,
+  getUserById,
+  getUsers,
+  registerUser,
+} from "./queries";
 const app = express();
 const port = 5000;
 
@@ -11,6 +17,7 @@ app.get("/", (_, res) => {
 });
 
 app.get("/api/users", getUsers);
+app.get("/api/events", getEvents);
 app.get("/api/users/email/:email", getUserByEmail);
 app.get("/api/users/id/:id", getUserById);
 app.post("/api/users", registerUser);

@@ -1,20 +1,55 @@
 import faker from "faker";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+import getEventsAPI from "../api/geteventsAPI";
 import { FeedItem } from "../Components/FeedItem";
 import { TouchableImage } from "../Components/TouchableImage";
 import { HomeStackNavProps } from "../HomeParamList";
+import { Evento } from "../types";
 
 export function Feed({ navigation }: HomeStackNavProps<"Feed">) {
   const ogdata = Array.from(Array(10), () => faker.commerce.product());
   const [eventData, changeEventData] = useState(ogdata);
+  const [eventos, cambiarEventos] = useState("");
+
+  useEffect(() => {
+    getEventsAPI()
+      .then((eventos: any) => {
+        if (eventos) {
+          console.log(`Eventos cargados exitosamente`);
+          cambiarEventos(eventos);
+        } else {
+          console.log(`Eventos no cargados`);
+          cambiarEventos("");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const reset = () => {
-    changeEventData(ogdata);
+    getEventsAPI()
+      .then((eventos: any) => {
+        if (eventos) {
+          console.log(`Eventos cargados exitosamente`);
+          cambiarEventos(eventos);
+        } else {
+          console.log(`Eventos no cargados`);
+          cambiarEventos("");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   const filter = (data, filterName) => {
-    changeEventData(data.filter((x) => x.startsWith(filterName)));
+    cambiarEventos(
+      JSON.stringify(
+        JSON.parse(data).filter((x: Evento) => x.nombre.endsWith(filterName))
+      )
+    );
   };
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
@@ -31,10 +66,10 @@ export function Feed({ navigation }: HomeStackNavProps<"Feed">) {
             text="Museo"
             src="Museo"
             onPressImg={() => {
-              filter(eventData, "C");
+              filter(eventos, "4");
             }}
           />
-          <TouchableImage text="Teatro" src="Teatro" />
+          <TouchableImage text="Teatro" onPressImg={() => {}} src="Teatro" />
           <TouchableImage text="Cine" src="Cine" />
           <TouchableImage text="Música" src="Musica" />
         </View>
@@ -57,7 +92,6 @@ export function Feed({ navigation }: HomeStackNavProps<"Feed">) {
           <TouchableOpacity
             onPress={() => {
               reset();
-              console.log(ogdata);
             }}
           >
             <Text
@@ -73,14 +107,15 @@ export function Feed({ navigation }: HomeStackNavProps<"Feed">) {
             </Text>
           </TouchableOpacity>
         </View>
-
-        <FlatList
-          renderItem={({ item }) => {
-            return <FeedItem item={item} navigation={navigation} />;
-          }}
-          keyExtractor={(product, idx) => product + idx}
-          data={eventData}
-        />
+        {eventos != "" && (
+          <FlatList
+            renderItem={({ item }: { item: Evento }) => {
+              return <FeedItem item={item} navigation={navigation} />;
+            }}
+            keyExtractor={(item: Evento) => item.eventid.toString()}
+            data={JSON.parse(eventos)}
+          />
+        )}
       </View>
     </View>
   );

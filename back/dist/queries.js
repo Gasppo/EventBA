@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteUser = exports.updateUser = exports.registerUser = exports.getUserByEmail = exports.getUserById = exports.getUsers = void 0;
+exports.deleteUser = exports.updateUser = exports.registerUser = exports.getUserByEmail = exports.getUserById = exports.getEvents = exports.getUsers = void 0;
 const pg_1 = require("pg");
 const pool = new pg_1.Pool({
     user: "gaspo",
@@ -18,6 +18,15 @@ const getUsers = (request, response) => {
     });
 };
 exports.getUsers = getUsers;
+const getEvents = (request, response) => {
+    pool.query("SELECT * FROM events ORDER BY eventid ASC", (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    });
+};
+exports.getEvents = getEvents;
 const getUserById = (request, response) => {
     const id = request.params.id;
     pool.query("SELECT * FROM users WHERE id = $1", [id], (error, results) => {

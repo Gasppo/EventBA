@@ -17,6 +17,15 @@ export const getUsers = (request: any, response: any) => {
   });
 };
 
+export const getEvents = (request: any, response: any) => {
+  pool.query("SELECT * FROM events ORDER BY eventid ASC", (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+};
+
 export const getUserById = (request: any, response: any) => {
   const id = request.params.id;
 
