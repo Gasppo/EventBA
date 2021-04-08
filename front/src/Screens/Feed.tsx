@@ -5,7 +5,7 @@ import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import getEventsAPI from "../api/geteventsAPI";
 import { FeedItem } from "../Components/FeedItem";
 import { TouchableImage } from "../Components/TouchableImage";
-import { HomeStackNavProps } from "../HomeParamList";
+import { HomeStackNavProps } from "../paramLists/HomeParamList";
 import { Evento } from "../types";
 
 export function Feed({ navigation }: HomeStackNavProps<"Feed">) {

@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { AuthNavProps } from "../AuthParamList";
+import { AuthNavProps } from "../paramLists/AuthParamList";
 import { AuthContext } from "../AuthProvider";
 import { Centrar } from "../Components/Centrar";
 

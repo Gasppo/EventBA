@@ -2,9 +2,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import React, { useContext, useEffect, useState } from "react";
 import { ActivityIndicator } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { AppTabs } from "./AppTabs";
+import { AppTabs } from "./tabs/AppTabs";
 import { AuthContext } from "./AuthProvider";
-import { AuthStack } from "./AuthStack";
+import { AuthStack } from "./stacks/AuthStack";
 import { Centrar } from "./Components/Centrar";
 
 interface RoutesProps {}

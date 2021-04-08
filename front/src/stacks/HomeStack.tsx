@@ -5,19 +5,18 @@ import {
 } from "@react-navigation/stack";
 import React, { useContext } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import { AuthContext } from "./AuthProvider";
-import { Evento } from "./Screens/Evento";
-import { Feed } from "./Screens/Feed";
-import { Search } from "./Screens/Search";
+import { AuthContext } from "../AuthProvider";
+import { Evento } from "../Screens/Evento";
+import { Feed } from "../Screens/Feed";
+interface HomeStackProps {}
 
-interface SearchStackProps {}
 const Stack = createStackNavigator();
 
-export const SearchStack: React.FC<SearchStackProps> = ({}) => {
+export const HomeStack: React.FC<HomeStackProps> = ({}) => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Search"
+        name="Feed"
         options={{
           headerTitle: () => null,
           headerStyle: {
@@ -54,7 +53,7 @@ export const SearchStack: React.FC<SearchStackProps> = ({}) => {
             );
           },
         }}
-        component={Search}
+        component={Feed}
       />
       <Stack.Screen
         options={({ navigation, route }) => ({

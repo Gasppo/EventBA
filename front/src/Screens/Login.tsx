@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Text, TouchableOpacity } from "react-native";
-import { AuthNavProps } from "../AuthParamList";
+import { AuthNavProps } from "../paramLists/AuthParamList";
 import { AuthContext } from "../AuthProvider";
 import { Centrar } from "../Components/Centrar";
 

@@ -1,10 +1,10 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import { Text, View } from "react-native";
-import { AuthParamList } from "./AuthParamList";
-import { Login } from "./Screens/Login";
-import { LoginForm } from "./Screens/LoginForm";
-import { Register } from "./Screens/Register";
+import { AuthParamList } from "../paramLists/AuthParamList";
+import { Login } from "../Screens/Login";
+import { LoginForm } from "../Screens/LoginForm";
+import { Register } from "../Screens/Register";
 
 interface AuthStackProps {}
 

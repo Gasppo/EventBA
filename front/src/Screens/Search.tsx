@@ -1,14 +1,10 @@
-import faker from "faker";
 import React, { useEffect, useState } from "react";
-import { TextInput } from "react-native";
-import { Text, View, StyleSheet } from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import getEventsAPI from "../api/geteventsAPI";
-import { AppTabProps } from "../AppParamList";
 import { FeedItem } from "../Components/FeedItem";
 import { TouchableImage } from "../Components/TouchableImage";
-import { HomeStackNavProps } from "../HomeParamList";
-import { SearchStackNavProps } from "../SearchParamList";
+import { SearchStackNavProps } from "../paramLists/SearchParamList";
 import { Evento } from "../types";
 
 export function Search({ navigation }: SearchStackNavProps<"Search">) {

@@ -1,19 +1,12 @@
-import React from "react";
+import { AntDesign } from "@expo/vector-icons";
+import { StackNavigationProp } from "@react-navigation/stack";
+import Moment from "moment";
+import React, { useState } from "react";
 import { Image, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import {
-  AntDesign,
-  FontAwesome5,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
-import Moment from "moment";
-import { Centrar } from "./Centrar";
-import { useState } from "react";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { HomeParamList } from "../HomeParamList";
+import { HomeParamList } from "../paramLists/HomeParamList";
+import { SearchParamList } from "../paramLists/SearchParamList";
 import { Evento } from "../types";
-import { AppParamList, AppTabProps } from "../AppParamList";
-import { SearchParamList } from "../SearchParamList";
 
 interface FeedItemProps {
   item: Evento;

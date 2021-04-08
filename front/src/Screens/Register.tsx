@@ -7,7 +7,7 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import { AuthNavProps } from "../AuthParamList";
+import { AuthNavProps } from "../paramLists/AuthParamList";
 import { Centrar } from "../Components/Centrar";
 import { AuthContext } from "../AuthProvider";
 

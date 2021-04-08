@@ -1,22 +1,19 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import {
-  createStackNavigator,
-  HeaderBackButton,
-} from "@react-navigation/stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import React, { useContext } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import { AuthContext } from "./AuthProvider";
-import { Evento } from "./Screens/Evento";
-import { Feed } from "./Screens/Feed";
-interface HomeStackProps {}
+import { AuthContext } from "../AuthProvider";
+import { Evento } from "../Screens/Evento";
+import { Search } from "../Screens/Search";
 
+interface SearchStackProps {}
 const Stack = createStackNavigator();
 
-export const HomeStack: React.FC<HomeStackProps> = ({}) => {
+export const SearchStack: React.FC<SearchStackProps> = ({}) => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Feed"
+        name="Search"
         options={{
           headerTitle: () => null,
           headerStyle: {
@@ -53,7 +50,7 @@ export const HomeStack: React.FC<HomeStackProps> = ({}) => {
             );
           },
         }}
-        component={Feed}
+        component={Search}
       />
       <Stack.Screen
         options={({ navigation, route }) => ({

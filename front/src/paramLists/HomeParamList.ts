@@ -1,7 +1,6 @@
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { AuthParamList } from "./AuthParamList";
-import { Evento } from "./types";
+import { Evento } from "../types";
 
 export type HomeParamList = {
   Feed: undefined;

@@ -5,12 +5,11 @@ import {
 } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { AppParamList } from "./AppParamList";
-import { HomeStack } from "./HomeStack";
-import { Entradas } from "./Screens/Entradas";
-import { Perfil } from "./Screens/Perfil";
-import { Search } from "./Screens/Search";
-import { SearchStack } from "./SearchStack";
+import { AppParamList } from "../paramLists/AppParamList";
+import { Entradas } from "../Screens/Entradas";
+import { Perfil } from "../Screens/Perfil";
+import { HomeStack } from "../stacks/HomeStack";
+import { SearchStack } from "../stacks/SearchStack";
 interface AppTabsProps {}
 
 const Tabs = createBottomTabNavigator<AppParamList>();
